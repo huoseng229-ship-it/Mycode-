@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  overflow-x: hidden;
+}
+
+#comic {
+  width: 100vw;
+  line-height: 0;
+  background: #000;
+}
+
+#comic img {
+  width: 100vw;
+  height: auto;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+@media (min-width: 900px) {
+  #comic {
+    width: 800px;       
+    margin: 0 auto;     
+  }
+
+  #comic img {
+    width: 800px;
+  }
+}
