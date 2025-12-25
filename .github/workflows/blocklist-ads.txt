@@ -24,6 +24,15 @@ a.applovin.com
 d.applovin.com
 max.applovin.com
 events.applovin.com
+a.applovin.com
+d.applovin.com
+pdn.applovin.com
+rt.applovin.com
+rt.applvn.com
+ms4.applovin.com
+dash.applovin.com
+d.applvn.com
+a.applvn.com
 
 youtubeads.google.com
 ads.youtube.com
