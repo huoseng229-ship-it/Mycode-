@@ -15,7 +15,7 @@ TOKEN = os.getenv("DISCORD_TOKEN")
 if not TOKEN:
     raise ValueError("⚠️ Không tìm thấy DISCORD_TOKEN trong file .env hoặc biến môi trường.")
 
-LAVALINK_URI = os.getenv("LAVALINK_URI", "http://160.191.77.60:2051")
+LAVALINK_URI = os.getenv("LAVALINK_URI", "http://193.226.78.187:8389")
 LAVALINK_PASSWORD = os.getenv("LAVALINK_PASSWORD", "Seng")
 
 # ================== BOT SETUP ==================
