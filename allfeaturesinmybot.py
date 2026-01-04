@@ -350,16 +350,21 @@ async def auto_disconnect(vc: discord.VoiceClient, timeout: int = 300):
     """Nếu voice channel không còn nhạc Wavelink, tự động rời sau timeout giây (mặc định 5 phút)."""
     # Chỉ áp dụng cho wavelink.Player
     if not isinstance(vc, wavelink.Player):
-        return
+        # Nếu là VoiceClient bình thường thì chỉ đợi timeout
+        return await asyncio.sleep(timeout)
 
+    # Đợi timeout
     await asyncio.sleep(timeout)
-    # Kiểm tra lại xem có còn đang phát nhạc Wavelink hay không
-    if vc.is_playing() or vc.is_paused():
-        return
+
+    # Kiểm tra lại trạng thái player
+    # 'playing' và 'paused' là properties mới trong wavelink Player
+    if getattr(vc, "playing", False) or getattr(vc, "paused", False):
+        return  # còn nhạc/dừng tạm thì không rời
+
+    # Nếu đã kết nối mà không còn nhạc thì disconnect
     if vc.is_connected():
         await vc.disconnect()
-        print(f"👋 Bot đã rời voice channel do không còn nhạc sau {timeout} giây.")
-
+        print(f"🔹 Bot đã rời voice channel do không còn nhạc sau {timeout} giây.")
 # ================== AUTO DELETE MESSAGES ==================
 AUTO_DELETE_CHANNEL = int(os.getenv("AUTO_DELETE_CHANNEL", "0"))
 
